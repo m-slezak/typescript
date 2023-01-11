@@ -1,16 +1,12 @@
-let age: number = 37;
-age = 38;
+const input1: HTMLInputElement = document.querySelector("#input1");
 
-let ageAsString: string = "trzydziesci siedem";
-ageAsString = "trzydziesci osiem";
-ageAsString = `${age}`;
+const input2: HTMLInputElement = document.querySelector("#input2");
 
-console.log(ageAsString + " " + age);
+const button = document.querySelector("button");
 
-function add(v1: number, v2: number) {
-  return v1 + v2;
-}
+const add = (v1: number, v2: number) => v1 + v2;
 
-const add2 = (c1: number, c2: number) => c1 + c2;
-console.log(add(2, 10));
-console.log(add2(2, 11));
+button.addEventListener("click", () => {
+  const sum = add(Number(input1.value), Number(input2.value));
+  console.log(sum);
+});
