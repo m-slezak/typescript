@@ -9,13 +9,23 @@ const inputElement: HTMLInputElement = document.querySelector("#name");
 const tasksContainer: HTMLElement = document.querySelector(".tasks");
 const addButton: HTMLButtonElement = document.querySelector("button");
 
-const tasks: string[] = ["Wyrzucić śmieci", "nakarmić koty", "wyrzucić śmieci"];
+const tasks: {
+  name: string;
+  done: boolean;
+}[] = [
+  {
+    name: "Wyrzucić śmieci",
+    done: false,
+  },
+  { name: "nakarmić koty", done: true },
+  { name: "wyrzucić śmieci", done: false },
+];
 
 const render = () => {
   tasksContainer.innerHTML = "";
   tasks.forEach((task) => {
     const taskElement: HTMLElement = document.createElement("li");
-    taskElement.innerText = task;
+    taskElement.innerText = task.name;
     tasksContainer.appendChild(taskElement);
   });
 };

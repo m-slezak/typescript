@@ -7,12 +7,19 @@
 const inputElement = document.querySelector("#name");
 const tasksContainer = document.querySelector(".tasks");
 const addButton = document.querySelector("button");
-const tasks = ["Wyrzucić śmieci", "nakarmić koty", "wyrzucić śmieci"];
+const tasks = [
+    {
+        name: "Wyrzucić śmieci",
+        done: false,
+    },
+    { name: "nakarmić koty", done: true },
+    { name: "wyrzucić śmieci", done: false },
+];
 const render = () => {
     tasksContainer.innerHTML = "";
     tasks.forEach((task) => {
         const taskElement = document.createElement("li");
-        taskElement.innerText = task;
+        taskElement.innerText = task.name;
         tasksContainer.appendChild(taskElement);
     });
 };
