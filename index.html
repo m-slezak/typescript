@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TypeScript</title>
+    <link rel="stylesheet" href="style.css" />
     <script defer src="./dist/app.js"></script>
   </head>
   <body>
-    <input type="text" type="number" id="input1" />
-    <input type="text" type="number" id="input2" />
-    <button id="button">dodaj</button>
+    <label for="name" autocomple="off">Tasks:</label>
+    <input type="text" id="name" autocomplete="off" />
+    <button id="button">Add</button>
+    <p>TODO:</p>
+    <ul class="tasks"></ul>
   </body>
 </html>
