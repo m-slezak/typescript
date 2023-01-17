@@ -5,10 +5,12 @@ const tasks = [
     {
         name: "Wyrzucić śmieci",
         done: false,
+        category: "general",
     },
     { name: "nakarmić koty", done: true },
-    { name: "wyrzucić śmieci", done: false },
+    { name: "pojsc na silke", done: false, category: "gym" },
 ];
+const categories = ["general", "work", "gym", "hobby"];
 const render = () => {
     /*
   <li>

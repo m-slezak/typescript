@@ -4,16 +4,19 @@ const addButton: HTMLButtonElement = document.querySelector("button");
 
 interface Task {
   name: string;
-  done: bolean;
+  done: boolean;
+  category?: string;
 }
 const tasks: Task[] = [
   {
     name: "Wyrzucić śmieci",
     done: false,
+    category: "general",
   },
   { name: "nakarmić koty", done: true },
-  { name: "wyrzucić śmieci", done: false },
+  { name: "pojsc na silke", done: false, category: "gym" },
 ];
+const categories: string[] = ["general", "work", "gym", "hobby"];
 
 const render = () => {
   /*
@@ -45,7 +48,7 @@ const render = () => {
   });
 };
 
-const addTask = (task: { name: string; done: bolean }) => {
+const addTask = (task: Task) => {
   tasks.push(task);
 };
 
