@@ -41,6 +41,7 @@ const addTask = (task) => {
 };
 addButton.addEventListener("click", (event) => {
     event.preventDefault();
-    addTask(inputElement.value);
+    addTask({ name: inputElement.value, done: true });
     render();
 });
+render();
