@@ -2,10 +2,12 @@ const inputElement: HTMLInputElement = document.querySelector("#name");
 const tasksContainer: HTMLElement = document.querySelector(".tasks");
 const addButton: HTMLButtonElement = document.querySelector("button");
 
+
+type Category =  "work" | "gym" | "hobby" | "general"
 interface Task {
   name: string;
   done: boolean;
-  category?: string;
+  category?: Category;
 }
 const tasks: Task[] = [
   {
@@ -19,15 +21,14 @@ const tasks: Task[] = [
 const categories: string[] = ["general", "work", "gym", "hobby"];
 
 const render = () => {
-  /*
-<li>
-  <label for="task-1">Wyrzucić śmieci</label>
-  <input type="checkbox" id="task-1" />
-</li>
-*/
+
   tasksContainer.innerHTML = "";
   tasks.forEach((task, index) => {
+
     const taskElement: HTMLElement = document.createElement("li");
+    if (task.category) {
+      taskElement.classList.add(task.category);
+    }
     const labelElement: HTMLLabelElement = document.createElement("label");
     const id: string = `task-${index}`;
     labelElement.innerText = task.name;
@@ -54,7 +55,9 @@ const addTask = (task: Task) => {
 
 addButton.addEventListener("click", (event: Event) => {
   event.preventDefault();
-  addTask({ name: inputElement.value, done: true });
+  const selectedRadioElement: HTMLInputElement = document.querySelector("input[type='radio']:checked)
+    const selectedCategory: string = selectedRadioElement.value
+  addTask({ name: inputElement.value, done: true, category: selectedCategory });
   render();
 });
 

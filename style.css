@@ -1,0 +1,15 @@
+.gym {
+  list-style: circle;
+  background-color: rgb(191, 191, 221);
+}
+
+.work {
+  list-style-type: disc;
+  background-color: brown;
+  color: white;
+}
+
+.hobby {
+  list-style: decimal;
+  background-color: bisque;
+}

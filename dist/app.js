@@ -12,15 +12,12 @@ const tasks = [
 ];
 const categories = ["general", "work", "gym", "hobby"];
 const render = () => {
-    /*
-  <li>
-    <label for="task-1">Wyrzucić śmieci</label>
-    <input type="checkbox" id="task-1" />
-  </li>
-  */
     tasksContainer.innerHTML = "";
     tasks.forEach((task, index) => {
         const taskElement = document.createElement("li");
+        if (task.category) {
+            taskElement.classList.add(task.category);
+        }
         const labelElement = document.createElement("label");
         const id = `task-${index}`;
         labelElement.innerText = task.name;
@@ -43,7 +40,9 @@ const addTask = (task) => {
 };
 addButton.addEventListener("click", (event) => {
     event.preventDefault();
-    addTask({ name: inputElement.value, done: true });
+    const selectedRadioElement = document.querySelector("input[type='radio']:checked));
+    const selectedCategory = selectedRadioElement.value;
+    addTask({ name: inputElement.value, done: true, category: selectedCategory });
     render();
 });
 render();
